@@ -10,6 +10,7 @@
 html,
 body {
   font-family: var(--main-font);
+  transition: ease-in all 0.3s;
 }
 
 .theme-color {
@@ -33,9 +34,7 @@ body {
 
 .theme-btn {
   padding: 12px 20px;
-}
-.navbar .theme-btn:hover {
-  background-color: var(--primary-color);
+  transition: ease-in all 0.3s;
 }
 
 a {
@@ -73,11 +72,7 @@ li {
 }
 
 .space {
-  padding: 60px 0;
-}
-
-.space2 {
-  padding: 100px 0;
+  padding: 160px 0;
 }
 
 .classc_button {
@@ -107,7 +102,34 @@ li {
   font-weight: 600;
   font-size: 20px;
 }
-
+.classc_button {
+  position: relative;
+}
+.classc_button::before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 0px;
+  background-color: var(--primary-color);
+  opacity: 0;
+  transition: ease-in all 0.3s;
+  z-index: -1;
+}
+.classc_button:hover::before {
+  height: 100%;
+  opacity: 1;
+  transition: ease-in all 0.3s;
+}
+.classc_button:hover svg,
+.classc_button:hover small {
+  color: #fff;
+  transition: ease-in all 0.3s;
+}
+.classc_button:hover .round_arrow {
+  border-color: #fff;
+}
 .client_review_title h5 {
   font-size: 20px;
   font-weight: 600;
@@ -126,6 +148,32 @@ li {
 .banner_content h1 {
   font-size: 60px;
   font-weight: 300;
+}
+.banner_action .hover1:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff;
+}
+.hover2:hover {
+  background-color: #fff;
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  transition: ease-in all 0.3s;
+}
+.hover3:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  transition: ease-in all 0.3s;
+}
+.hover4:hover {
+  background-color: #fff;
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  transition: ease-in all 0.3s;
+}
+.dark-hover:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  transition: ease-in all 0.3s;
 }
 
 .statistic_sec {
@@ -148,7 +196,11 @@ li {
 }
 
 .single_brand_logo {
-  padding: 30px 0;
+  padding: 30px;
+}
+.single_brand_logo img {
+  width: 100%;
+  opacity: 0.6;
 }
 
 .single_brand_logo img {
@@ -263,7 +315,8 @@ li {
 
 .cta_img {
   border-left: 30px solid #000;
-  width: 250px;
+  width: auto;
+  height: 100%;
 }
 
 .cta_content h2 {
@@ -296,113 +349,16 @@ li {
 
 .video-section {
   position: relative;
-  background-color: var(--primary-color);
-  height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  padding: 200px 0;
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  transform: scale(0.2);
-  transition: transform 1s ease;
-  opacity: 0.8;
+.play_icon img {
+  width: 178px;
+  transition: ease-in all 0.3s;
 }
-
-.video-container.in-view {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.video-frame {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  /* 16:9 Aspect Ratio */
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.video-frame video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110px;
-  height: 110px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-
-.play-button:hover {
-  background-color: #fff;
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.play-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  border-left: 35px solid #dc3545;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
-}
-
-.video-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(220, 53, 69, 0.1);
-  transition: opacity 0.3s ease;
-}
-
-.playing .video-mask {
-  opacity: 0;
-}
-
-.playing .play-button {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.pause-button::after,
-.pause-button::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 30px;
-  background-color: #dc3545;
-}
-
-.pause-button::before {
-  margin-left: -12px;
-}
-
-.pause-button::after {
-  margin-left: 12px;
+.play_icon a img:hover {
+  transform: scale(1.2);
+  transition: ease-in all 0.3s;
 }
 
 .faq_section .section-title {
@@ -435,10 +391,6 @@ li {
 }
 
 @media (max-width: 768px) {
-}
-
-.blog_sec {
-  padding: 100px 0 60px;
 }
 
 .new_aee {
